@@ -71,6 +71,7 @@ module RailsAdmin
 
       # yell about fields that are not marked as accessible
       attr_accessor :yell_for_non_accessible_fields
+      attr_accessor :associated_collection_cache
 
       # Setup authentication to be run as a before filter
       # This is run inside the controller instance so you can setup any authentication you need to
@@ -278,6 +279,7 @@ module RailsAdmin
         @navigation_static_links = {}
         @navigation_static_label = nil
         @parent_controller = '::ApplicationController'
+        @associated_collection_cache = true
         RailsAdmin::Config::Actions.reset
       end
 
