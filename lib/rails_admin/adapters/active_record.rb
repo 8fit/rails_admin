@@ -177,6 +177,7 @@ module RailsAdmin
           when :integer, :decimal, :float then build_statement_for_integer_decimal_or_float
           when :string, :text             then build_statement_for_string_or_text
           when :enum                      then build_statement_for_enum
+          when :json                      then build_statement_for_json
           when :belongs_to_association    then build_statement_for_belongs_to_association
           end
         end
@@ -222,6 +223,12 @@ module RailsAdmin
         def build_statement_for_enum
           return if @value.blank?
           ["(#{@column} IN (?))", Array.wrap(@value)]
+        end
+
+        def build_statement_for_json
+          if ar_adapter == 'postgresql'
+            ["(#{@column}::text LIKE ?)", "%#{@value.downcase}%"]
+          end
         end
 
         def ar_adapter
