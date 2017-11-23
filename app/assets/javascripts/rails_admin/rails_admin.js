@@ -3,7 +3,7 @@
 //=  require 'rails_admin/jquery.remotipart.fixed'
 //=  require 'jquery-ui/effect'
 //=  require 'jquery-ui/widgets/sortable'
-//=  require 'jquery-ui/autocomplete'
+//=  require 'jquery-ui/widgets/autocomplete'
 //=  require 'rails_admin/moment-with-locales'
 //=  require 'rails_admin/bootstrap-datetimepicker'
 //=  require 'rails_admin/jquery.colorpicker'
