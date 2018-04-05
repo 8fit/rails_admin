@@ -55,7 +55,7 @@ module RailsAdmin
         end
 
         def action_for_pundit(action)
-          action[-1, 1] == '?' ? action : "#{action}?"
+          "admin_" + (action[-1, 1] == '?' ? action : "#{action}?")
         end
       end
     end
